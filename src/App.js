@@ -1,5 +1,13 @@
 import React from 'react';
+import {BrowserRouter,Switch,Route} from 'react-router-dom';
 import { createGlobalStyle } from 'styled-components';
+import styled from 'styled-components';
+import Navbar from './components/Navbar';
+import Home from './pages/Home';
+import Watches from './pages/Watches';
+import Shoes from './pages/Shoes';
+import Cart from './pages/Cart';
+import NotFound from './pages/NotFound';
 
 const GlobalStyle = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,400;0,500;1,400;1,500&family=Montserrat+Alternates&display=swap');
@@ -50,16 +58,26 @@ a:active,a:focus {
     outline:none;
 }
 `
-
+const AppWrapper = styled.div`
+max-width:1440px;
+margin:0 auto;
+`
 
 const App = () => {
     return (
-        <>
+        <AppWrapper>
         <GlobalStyle />
-        <div>App</div>
-        <a>dsd</a>
-        <button>ds</button>
-        </>
+        <Navbar />
+        <BrowserRouter>
+        <Switch>
+        <Route path="/" exact component={Home}/>
+        <Route path="/watches" component={Watches}/>
+        <Route path="/shoes" component={Shoes}/>
+        <Route path="/cart" component={Cart}/>
+        <Route component={NotFound}/>
+        </Switch>
+        </BrowserRouter>
+        </AppWrapper>
     )
 }
 
