@@ -6,7 +6,7 @@ import watchFifth from './images/watches-images/product-5.jpg';
 import watchSixth from './images/watches-images/product-6.jpg';
 
 
-export const productsShoes = [
+export const productsWatches = [
     {
         id:7,
         name: 'watch',
