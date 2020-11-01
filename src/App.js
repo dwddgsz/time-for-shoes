@@ -10,13 +10,6 @@ import Cart from './pages/Cart';
 import NotFound from './pages/NotFound';
 
 const GlobalStyle = createGlobalStyle`
-@import url('https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,400;0,500;1,400;1,500&family=Montserrat+Alternates&display=swap');
-/* font-family: 'Bitter', serif;
-font-family: 'Montserrat Alternates', sans-serif; 
-400/500 italic
-400/500 normal
-400 mont
-*/
 
 :root {
     --mainWhite: #fff;
