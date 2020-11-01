@@ -10,10 +10,19 @@ img {
     height:180px;
 }
 h4 {
-    padding:20px 0;
+    padding:20px 0 5px;
     font-size:2rem;
     text-transform:capitalize;
 }
+p {
+    font-size:1.6rem;
+    padding-bottom:5px;
+        span {
+            margin-right:2px;
+        }
+}
+
+
 .button-product {
     padding:5px 10px;
     border:1px solid var(--mainBlack);
@@ -46,6 +55,10 @@ const Product = ({item}) => {
     <ProductWrapper>
         <img src={item.img}></img>
         <h4>{item.name}</h4>
+        <p><span>
+            {item.value}
+            </span>
+            $</p>
         {renderButton(item.inCart)}
     </ProductWrapper>
     )

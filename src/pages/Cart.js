@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import Title from '../components/Title';
-import customImg from '../assets/images/watches-images/product-3.jpg';
+import {connect} from 'react-redux';
+import CartProduct from '../components/CartProduct';
 
 const CartWrapper = styled.article`
 
@@ -33,45 +34,6 @@ border-bottom:1px solid var(--mainBlack);
     display:flex;
     flex-wrap:wrap;
     justify-content:center;
-}
-`
-const CartItemWrapper = styled.li`
-width:270px;
-margin: 0 10px 20px;
-text-align:center;
-
-.cart-product-img {
-    width:100%;
-}
-
-.cart-product-name {
-    padding:10px 0 5px;
-    font-size:1.8rem;
-}
-.cart-product-price {
-    padding-bottom: 5px;
-    font-size:1.6rem;
-}
-.cart-product-amount-container {
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    width:100px;
-    margin:0 auto;
-    button {
-        width:30px;
-        height:30px;
-        border:1px solid var(--mainBlack);
-        font-size:15px;
-        background-color:transparent;
-        cursor:pointer;
-        transition: background-color .3s, color .3s;
-        &:hover,&:focus {
-            background-color: var(--mainBlack);
-            color: var(--mainWhite);
-
-        }
-    }
 }
 `
 const PaymentWrapper = styled.section`
@@ -148,10 +110,32 @@ margin-left:10px;
 font-size:1.6rem;
 }
 
-
 `
 
-const Cart = () => {
+
+const Cart = (props) => {
+
+    const renderShoesAddedToCart = () => {
+        return props.shoes.map(shoe=>{
+            if (shoe.inCart) {
+                return <CartProduct product={shoe} />
+            }
+            else {
+                return null
+            }
+        })
+    }
+
+    const renderWatchesAddedToCart = () => {
+        return props.watches.map(watch=>{
+            if (watch.inCart) {
+                return <CartProduct product={watch} />
+            }
+            else {
+                return null
+            }
+        })
+    }
     return (
         <CartWrapper>
             <Title>Cart</Title>
@@ -162,17 +146,10 @@ const Cart = () => {
             <div className="cart-list-container">
             <h4 className="cart-list-title">chosen products</h4>
             <ul className="cart-list">
+                {renderShoesAddedToCart()}
+                {renderWatchesAddedToCart()}
 
-                <CartItemWrapper>
-                    <img className="cart-product-img" src={customImg}></img>
-                    <h4 className="cart-product-name">product</h4>
-                    <p className="cart-product-price"><span className="cart-product-value">43</span>$</p>
-                    <div className="cart-product-amount-container">
-                            <button>-</button>
-                            <span className="cart-product-amount">3</span>
-                            <button >+</button>
-                    </div>
-                </CartItemWrapper>
+
 
             </ul>
             </div>
@@ -180,7 +157,7 @@ const Cart = () => {
             <PaymentWrapper>
                 <h4 className="payment-title">Payment</h4>
                 <p className="payment-price">
-                    Total cost:<span className="payment-value">32</span>$
+    Total cost:<span className="payment-value">{props.value}</span>$
                 </p>
                 <form className="payment-terms-container">
                     <input className="payment-terms-checkbox" id="terms-checkbox" type="checkbox"></input>
@@ -197,4 +174,13 @@ const Cart = () => {
     )
 }
 
-export default Cart;
+const mapStateToProps = (state) => {
+    return {
+        watches: state.cart.watches,
+        shoes: state.cart.shoes,
+        value: state.cart.totalValue,
+
+    }
+}
+
+export default connect(mapStateToProps)(Cart);

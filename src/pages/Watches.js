@@ -1,20 +1,27 @@
 import React from 'react';
-import {productsWatches} from '../assets/products-watches';
-import Title from '../components/Title';
 import styled from 'styled-components';
+import {connect} from 'react-redux';
 import ProductsList from '../components/ProductsList';
+import Title from '../components/Title';
 
 const WatchesWrapper = styled.section`
 `
 
 
-const Watches = () => {
+const Watches = (props) => {
+    console.log(props)
     return (
         <WatchesWrapper>
              <Title>Watches</Title>
-             <ProductsList itemsList={productsWatches}/>
+             <ProductsList itemsList={props.watches}/>
         </WatchesWrapper>
     )
 }
 
-export default Watches;
+const mapStateToProps = (state) =>{
+    return {
+        watches:state.cart.watches,
+    }
+}
+
+export default connect(mapStateToProps)(Watches);

@@ -2,6 +2,7 @@ import React,{useState} from 'react';
 import styled from 'styled-components';
 import {NavLink} from 'react-router-dom';
 import {Link} from 'react-router-dom';
+import {connect} from 'react-redux';
 
 const NavigationWrapper = styled.nav`
 position:relative;
@@ -113,7 +114,7 @@ border-bottom: 1px solid var(--mainBlack);
 `
 
 
-const Navbar = () => {
+const Navbar = (props) => {
     const [menuActive,setMenuActive] = useState(false);
 
 
@@ -136,7 +137,7 @@ const Navbar = () => {
                 cart
                 </Link>
                 </h5>
-                <p className="navigation-cart-amount">(<span>0</span>)</p>
+                    <p className="navigation-cart-amount">(<span>{props.amount}</span>)</p>
             </button>
 
 
@@ -144,4 +145,11 @@ const Navbar = () => {
     )
 }
 
-export default Navbar;
+
+const mapStateToProps = (state) => {
+    return {
+        amount: state.cart.totalAmount,
+    }
+}
+
+export default connect(mapStateToProps)(Navbar);
