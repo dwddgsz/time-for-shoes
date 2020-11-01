@@ -37,6 +37,10 @@ border-bottom: 1px solid var(--mainBlack);
     border:none;
     z-index:3;
     cursor:pointer;
+    transition:opacity .3s;
+    &:hover,&:focus {
+        opacity:.6;
+    }
     &-line {
         width:100%;
         height:2.5px;
@@ -82,7 +86,7 @@ border-bottom: 1px solid var(--mainBlack);
     font-family: 'Bitter', serif;
     font-style:italic;
     color: var(--mainBlack);
-    &:hover {
+    &:hover,&:focus {
         border-bottom: 2px solid var(--mainBlack);
     }
 }
@@ -126,8 +130,9 @@ const Navbar = (props) => {
             </button>
             <ul className={menuActive?'menu-list active': 'menu-list'}>
                 <li className="menu-item"> <NavLink onClick={()=>{setMenuActive(!menuActive)}} className="menu-link" to="/">home</NavLink> </li>
-                <li className="menu-item"> <NavLink onClick={()=>{setMenuActive(!menuActive)}} className="menu-link" to="/watches">watches</NavLink> </li>
                 <li className="menu-item"> <NavLink onClick={()=>{setMenuActive(!menuActive)}} className="menu-link" to="/shoes">shoes</NavLink> </li>
+                <li className="menu-item"> <NavLink onClick={()=>{setMenuActive(!menuActive)}} className="menu-link" to="/watches">watches</NavLink> </li>
+               
             </ul>
 
             <h1 className="logo"><Link to='/'>TimeForShoes</Link></h1>

@@ -108,6 +108,10 @@ span {
 .payment-terms-description {
 margin-left:10px;
 font-size:1.6rem;
+span{
+    color: blue;
+    cursor:pointer;
+}
 }
 
 `
@@ -158,7 +162,7 @@ const Cart = (props) => {
                     <form className="payment-terms-container">
                         <input className="payment-terms-checkbox" id="terms-checkbox" type="checkbox"></input>
                         <label className="payment-term-custom-checkbox" htmlFor="terms-checkbox"><span></span></label>
-                        <p className="payment-terms-description">Accept <a href='#'>terms</a></p>
+                        <p className="payment-terms-description">Accept <span href='#'>terms</span></p>
                     </form>
                 </PaymentWrapper>
                 </div>

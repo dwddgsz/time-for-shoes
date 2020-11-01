@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import {connect} from 'react-redux';
 import {increase,decrease} from '../actions/actions';
-import Cart from '../pages/Cart';
 
 
 const CartProductWrapper = styled.li`
@@ -50,7 +49,7 @@ text-align:center;
 const CartProduct = ({product,increase,decrease}) => {
     return (
     <CartProductWrapper>
-                    <img className="cart-product-img" src={product.img}></img>
+                    <img className="cart-product-img" src={product.img} alt={`${product.name}`}></img>
                         <h4 className="cart-product-name">{product.name}</h4>
                     <p className="cart-product-price"><span className="cart-product-value">{product.value}</span>$</p>
                     <div className="cart-product-amount-container">

@@ -56,7 +56,7 @@ const Product = ({product,addToCart}) => {
 
     return (
     <ProductWrapper>
-        <img src={product.img}></img>
+        <img src={product.img} alt={`${product.name}`}></img>
         <h4>{product.name}</h4>
         <p><span>
             {product.value}

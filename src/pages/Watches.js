@@ -9,7 +9,6 @@ const WatchesWrapper = styled.section`
 
 
 const Watches = (props) => {
-    console.log(props)
     return (
         <WatchesWrapper>
              <Title>Watches</Title>
