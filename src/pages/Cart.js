@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Title from '../components/Title';
 import {connect} from 'react-redux';
 import CartProduct from '../components/CartProduct';
+import PayPalButton from '../components/PayPalButton';
 
 const CartWrapper = styled.article`
 
@@ -74,6 +75,7 @@ padding-bottom:20px;
 display:flex;
 justify-content:center;
 align-items:center;
+padding-bottom:25px;
 }
 
 .payment-terms-checkbox {
@@ -159,10 +161,13 @@ const Cart = (props) => {
                     <p className="payment-price">
                     Total cost:<span className="payment-value">{props.value}</span>$
                         </p>
-                    <form className="payment-terms-container">
+                    <form className="payment-form">
+                        <div className="payment-terms-container">
                         <input className="payment-terms-checkbox" id="terms-checkbox" type="checkbox"></input>
                         <label className="payment-term-custom-checkbox" htmlFor="terms-checkbox"><span></span></label>
                         <p className="payment-terms-description">Accept <span href='#'>terms</span></p>
+                        </div>
+                        <PayPalButton />
                     </form>
                 </PaymentWrapper>
                 </div>
