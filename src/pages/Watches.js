@@ -1,10 +1,19 @@
-import React from 'react'
+import React from 'react';
+import {productsWatches} from '../assets/products-watches';
+import Title from '../components/Title';
+import styled from 'styled-components';
+import ProductsList from '../components/ProductsList';
+
+const WatchesWrapper = styled.section`
+`
+
 
 const Watches = () => {
     return (
-        <div>
-            watches
-        </div>
+        <WatchesWrapper>
+             <Title>Watches</Title>
+             <ProductsList itemsList={productsWatches}/>
+        </WatchesWrapper>
     )
 }
 

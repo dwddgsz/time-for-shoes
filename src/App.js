@@ -42,8 +42,7 @@ ul {
 }
 
 button {
-    font-family: 'Bitter', serif;
-    font-style:italic;
+    font-family: 'Montserrat Alternates', serif;
 }
 
 button:focus {
@@ -59,6 +58,7 @@ a:active,a:focus {
 }
 `
 const AppWrapper = styled.div`
+position:relative;
 max-width:1440px;
 margin:0 auto;
 `
@@ -67,8 +67,8 @@ const App = () => {
     return (
         <AppWrapper>
         <GlobalStyle />
-        <Navbar />
         <BrowserRouter>
+        <Navbar />
         <Switch>
         <Route path="/" exact component={Home}/>
         <Route path="/watches" component={Watches}/>

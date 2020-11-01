@@ -1,9 +1,10 @@
 import React from 'react'
+import Title from '../components/Title';
 
 const NotFound = () => {
     return (
         <div>
-            notfound
+            <Title>page not found</Title>
         </div>
     )
 }
