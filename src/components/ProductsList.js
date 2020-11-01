@@ -12,15 +12,15 @@ margin:0 auto;
 
 const ProductsList = (props) => {
 
-    const renderItems = props.itemsList.map((item)=>{
+    const renderProducts = props.itemsList.map((product)=>{
         return (
-            <Product key={item.id} item={item}/>
+            <Product key={product.id} product={product}/>
         )
     })
 
     return (
         <ProductListWrapper>
-            {renderItems}
+            {renderProducts}
         </ProductListWrapper>
     )
 }

@@ -1,5 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import {connect} from 'react-redux';
+import {increase,decrease} from '../actions/actions';
+import Cart from '../pages/Cart';
 
 
 const CartProductWrapper = styled.li`
@@ -44,19 +47,19 @@ text-align:center;
 `
 
 
-const CartProduct = ({product}) => {
+const CartProduct = ({product,increase,decrease}) => {
     return (
     <CartProductWrapper>
                     <img className="cart-product-img" src={product.img}></img>
                         <h4 className="cart-product-name">{product.name}</h4>
                     <p className="cart-product-price"><span className="cart-product-value">{product.value}</span>$</p>
                     <div className="cart-product-amount-container">
-                            <button>-</button>
+                            <button onClick={()=>{decrease(product)}}>-</button>
                             <span className="cart-product-amount">{product.amount}</span>
-                            <button >+</button>
+                            <button onClick={()=>{increase(product)}}>+</button>
                     </div>
     </CartProductWrapper>
     );
 }
 
-export default CartProduct;
+export default connect(null,{increase,decrease})(CartProduct);

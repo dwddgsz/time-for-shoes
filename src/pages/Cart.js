@@ -114,66 +114,83 @@ font-size:1.6rem;
 
 
 const Cart = (props) => {
-
+    let shoesInCart = false;
+    let watchesInCart = false;
     const renderShoesAddedToCart = () => {
         return props.shoes.map(shoe=>{
             if (shoe.inCart) {
-                return <CartProduct product={shoe} />
+                return <CartProduct key={shoe.id} product={shoe} />
             }
             else {
                 return null
             }
         })
+    }
+
+    const checkForProducts = () => {
+        props.shoes.forEach((shoe=>{
+            if(shoe.amount !== 0) {
+                shoesInCart = true;
+            }
+        }));
+        props.watches.forEach((watch=>{
+            if(watch.amount !== 0) {
+                watchesInCart = true;
+            }
+        }))
+        if (watchesInCart || shoesInCart){
+            return (
+                <>
+                <Title>Cart</Title>
+                <div className="cart-content-container">
+                <div className="cart-list-container">
+                <h4 className="cart-list-title">chosen products</h4>
+                <ul className="cart-list">
+                    {renderShoesAddedToCart()}
+                    {renderWatchesAddedToCart()}
+                </ul>
+                </div>
+                <PaymentWrapper>
+                <h4 className="payment-title">Payment</h4>
+                    <p className="payment-price">
+                    Total cost:<span className="payment-value">{props.value}</span>$
+                        </p>
+                    <form className="payment-terms-container">
+                        <input className="payment-terms-checkbox" id="terms-checkbox" type="checkbox"></input>
+                        <label className="payment-term-custom-checkbox" htmlFor="terms-checkbox"><span></span></label>
+                        <p className="payment-terms-description">Accept <a href='#'>terms</a></p>
+                    </form>
+                </PaymentWrapper>
+                </div>
+                </>
+            )
+        } else {
+            return (
+                <Title>Your cart is empty</Title>
+            )
+        }
+    
     }
 
     const renderWatchesAddedToCart = () => {
         return props.watches.map(watch=>{
             if (watch.inCart) {
-                return <CartProduct product={watch} />
+                return <CartProduct key={watch.id} product={watch} />
             }
             else {
                 return null
             }
         })
     }
+
+
     return (
         <CartWrapper>
-            <Title>Cart</Title>
-
-
-            <div className="cart-content-container">
-
-            <div className="cart-list-container">
-            <h4 className="cart-list-title">chosen products</h4>
-            <ul className="cart-list">
-                {renderShoesAddedToCart()}
-                {renderWatchesAddedToCart()}
-
-
-
-            </ul>
-            </div>
-
-            <PaymentWrapper>
-                <h4 className="payment-title">Payment</h4>
-                <p className="payment-price">
-    Total cost:<span className="payment-value">{props.value}</span>$
-                </p>
-                <form className="payment-terms-container">
-                    <input className="payment-terms-checkbox" id="terms-checkbox" type="checkbox"></input>
-                    <label className="payment-term-custom-checkbox" htmlFor="terms-checkbox"><span></span></label>
-                    <p className="payment-terms-description">Accept <a href='#'>terms</a></p>
-                </form>
-            </PaymentWrapper>
-
-
-            </div>
-
-
+            {checkForProducts()}
         </CartWrapper>
-    )
-}
-
+        )
+    }
+    
 const mapStateToProps = (state) => {
     return {
         watches: state.cart.watches,

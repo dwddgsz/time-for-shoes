@@ -1,5 +1,8 @@
 import React from 'react'
 import styled from 'styled-components';
+import {addToCart} from '../actions/actions';
+import {connect} from 'react-redux';
+
 
 const ProductWrapper = styled.li`
 width:280px;
@@ -44,24 +47,25 @@ p {
     color: var(--mainWhite);
 }
 `
-const Product = ({item}) => {
+const Product = ({product,addToCart}) => {
 
     const renderButton = (inCart) => {
-        if (inCart) return <button className="button-product button-in-cart" disabled='true'>In cart</button>
-        else return <button className="button-product button-not-in-cart" onClick={()=>console.log('add to cart')}>Add to cart</button>
+        if (inCart) return <button className="button-product button-in-cart" disabled={true}>In cart</button>
+        else return <button className="button-product button-not-in-cart" onClick={()=>addToCart(product)}>Add to cart</button>
     }
 
     return (
     <ProductWrapper>
-        <img src={item.img}></img>
-        <h4>{item.name}</h4>
+        <img src={product.img}></img>
+        <h4>{product.name}</h4>
         <p><span>
-            {item.value}
+            {product.value}
             </span>
             $</p>
-        {renderButton(item.inCart)}
+        {renderButton(product.inCart)}
     </ProductWrapper>
     )
 }
 
-export default Product;
+
+export default connect(null,{addToCart})(Product);
