@@ -40,6 +40,7 @@ border-bottom:1px solid var(--mainBlack);
 const PaymentWrapper = styled.section`
 max-width:300px;
 margin:0 auto;
+padding-bottom:30px;
 text-align:center;
 
 @media screen and (min-width:1200px) {
