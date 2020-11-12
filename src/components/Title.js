@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components';
 
-const TitleWrapper = styled.h1`
+const TitleWrapper = styled.h2`
 padding: 50px 0;
 font-size:3.5rem;
 font-family:'Bitter', serif;
