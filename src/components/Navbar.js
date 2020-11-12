@@ -35,7 +35,7 @@ border-bottom: 1px solid var(--mainBlack);
     width:18px;
     background-color:transparent;
     border:none;
-    z-index:3;
+    z-index:1000;
     cursor:pointer;
     transition:opacity .3s;
     &:hover,&:focus {
@@ -69,7 +69,7 @@ border-bottom: 1px solid var(--mainBlack);
         height:100vh;
         width:100vw;
         background-color:var(--mainWhite);
-        z-index:2;
+        z-index:999;
         transition: .6s transform;
     }
 .menu-list.active {
