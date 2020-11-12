@@ -137,13 +137,14 @@ const Navbar = (props) => {
 
             <h1 className="logo"><Link to='/'>TimeForShoes</Link></h1>
 
-            <button className="navigation-cart-container">
-                <h5 className="navigation-cart-heading"><Link to='/cart'>
-                cart
-                </Link>
-                </h5>
+            <Link to='/cart'>
+                <button className="navigation-cart-container">
+                    <h5 className="navigation-cart-heading">
+                        cart
+                    </h5>
                     <p className="navigation-cart-amount">(<span>{props.amount}</span>)</p>
-            </button>
+                </button>
+            </Link>
 
 
         </NavigationWrapper>
