@@ -1,7 +1,7 @@
 # TimeForShoes
 
 
-[live](https://angry-blackwell-8c398a.netlify.app)
+[live](https://flamboyant-lumiere-2b5cd1.netlify.app/cart)
 
 
 ## Views:
