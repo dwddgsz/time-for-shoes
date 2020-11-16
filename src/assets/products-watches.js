@@ -9,7 +9,7 @@ import watchSixth from './images/watches-images/product-6.jpg';
 export const productsWatches = [
     {
         id:7,
-        name: 'watch',
+        name: 'Silver Watch',
         img: watchFirst,
         value: 499,
         inCart: false,
@@ -17,7 +17,7 @@ export const productsWatches = [
     },
     {
         id:8,
-        name:'watch',
+        name:'Golden Watch',
         img: watchSecond,
         value: 519,
         inCart: false,
@@ -25,7 +25,7 @@ export const productsWatches = [
     },
     {
         id:9,
-        name:'watch',
+        name:'Leather Watch',
         img: watchThird,
         value: 379,
         inCart: false,
@@ -33,7 +33,7 @@ export const productsWatches = [
     },
     {
         id:10,
-        name:'watch',
+        name:'Luxury Watch',
         img: watchFourth,
         value: 599,
         inCart: false,
@@ -41,7 +41,7 @@ export const productsWatches = [
     },
     {
         id:11,
-        name:'watch',
+        name:'Modern Watch',
         img: watchFifth,
         value: 629,
         inCart: false,
@@ -49,7 +49,7 @@ export const productsWatches = [
     },
     {
         id:12,
-        name:'watch',
+        name:'Brown Watch',
         img: watchSixth,
         value: 59,
         inCart: false,

@@ -11,7 +11,7 @@ import shoesSixth from './images/shoes-images/product-6.jpg';
 export const productsShoes = [
     {
         id:1,
-        name: 'a pair of shoes',
+        name: 'Nike Air Jordan',
         img: shoesFirst,
         value: 99,
         inCart: false,
@@ -19,7 +19,7 @@ export const productsShoes = [
     },
     {
         id:2,
-        name:'a pair of shoes',
+        name:'Adidas Shoes',
         img: shoesSecond,
         value: 119,
         inCart: false,
@@ -27,7 +27,7 @@ export const productsShoes = [
     },
     {
         id:3,
-        name:'a pair of shoes',
+        name:'S.W.C Shoes',
         img: shoesThird,
         value: 79,
         inCart: false,
@@ -35,7 +35,7 @@ export const productsShoes = [
     },
     {
         id:4,
-        name:'a pair of shoes',
+        name:'Adidas Tubular',
         img: shoesFourth,
         value: 99,
         inCart: false,
@@ -43,7 +43,7 @@ export const productsShoes = [
     },
     {
         id:5,
-        name:'a pair of shoes',
+        name:'Adidas Trainers',
         img: shoesFifth,
         value: 129,
         inCart: false,
@@ -51,7 +51,7 @@ export const productsShoes = [
     },
     {
         id:6,
-        name:'a pair of shoes',
+        name:'Vans Shoes',
         img: shoesSixth,
         value: 59,
         inCart: false,
